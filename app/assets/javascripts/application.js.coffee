@@ -5,3 +5,6 @@
 #= require_tree .
 
 @Cookbook = {}
+
+$ ->
+  new Cookbook.RecipeListView(el: $("#recipe_list_view")).render()
