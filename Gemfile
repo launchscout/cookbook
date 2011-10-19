@@ -19,6 +19,7 @@ end
 gem "jasminerice"
 gem 'jquery-rails'
 gem 'npm_assets'
+gem 'inherited_resources'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -33,6 +34,7 @@ gem 'npm_assets'
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
 group :test do
+  gem "rspec-rails"
   # Pretty printed test output
   gem 'turn', :require => false
 end
