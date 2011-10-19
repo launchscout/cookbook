@@ -1,0 +1,4 @@
+<dl>
+  <dt><%- @get("title") %></dt>
+  <dd><%- @get("description") %></dd>
+</dl>
