@@ -7,4 +7,6 @@
 @Cookbook = {}
 
 $ ->
-  new Cookbook.RecipeListView(el: $("#recipe_list_view"))
+  new Cookbook.RecipesRouter()
+  new Cookbook.RecipeListView(el: $("#recipe_list"))
+  Backbone.history.start()
