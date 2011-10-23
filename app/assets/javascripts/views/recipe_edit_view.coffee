@@ -5,3 +5,8 @@ class Cookbook.RecipeEditView extends Backbone.View
   editRecipe: (recipe)->
     @model = recipe
     @render()
+    
+  save: ->
+    @model.set
+      title: @$("input[name=title]").val()
+      description: @$("textarea[name=description]").val()
