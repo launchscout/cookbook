@@ -2,3 +2,4 @@
   <dt><%- @get("title") %></dt>
   <dd><%- @get("description") %></dd>
 </dl>
+<a href="#recipes/<%- @id %>/edit">Edit</a
