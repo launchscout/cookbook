@@ -16,7 +16,7 @@ describe "EditRecipeSpec", ->
       @recipeEditView.editRecipe(@recipe)
       @recipeEditView.$("input[name=title]").val("the new title")
       @recipeEditView.$("textarea[name=description]").val("the new description")
-      @recipeEditView.save()
+      @recipeEditView.save(new jQuery.Event)
     it "should update the model", ->
       expect(@recipe.get("title")).toEqual "the new title"
       expect(@recipe.get("description")).toEqual "the new description"

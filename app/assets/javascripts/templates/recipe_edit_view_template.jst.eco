@@ -11,5 +11,8 @@
       <textarea name="description"><%- @get("description")%></textarea>
     </div>
   </div>
-  
+  <div>
+    <input type="submit" class="btn primary" value="Save" />
+    <input type="button" class="btn" value="Cancel">
+  </div>
 </form>

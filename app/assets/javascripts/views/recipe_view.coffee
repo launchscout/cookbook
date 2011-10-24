@@ -7,3 +7,4 @@ class Cookbook.RecipeView extends Backbone.View
   viewRecipe: (recipe) ->
     @model = recipe
     @render()
+    @el.show()
