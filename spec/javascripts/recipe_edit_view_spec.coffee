@@ -30,7 +30,7 @@ describe "EditRecipeSpec", ->
     it "should add an error tag to the container div", ->
       expect(@recipeEditView.$("div.clearfix:first")).toHaveClass "error"
     it "should display the error message", ->
-      expect(@recipeEditView.$("span.help-inline").html()).toMatch /no good/
+      expect(@recipeEditView.$("span.help-inline")).toHaveText /no good/
       
   
     
