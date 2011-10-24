@@ -22,5 +22,15 @@ describe "EditRecipeSpec", ->
       expect(@recipe.get("title")).toEqual "the new title"
       expect(@recipe.get("description")).toEqual "the new description"
       
+  describe "displaying errors", ->
+    beforeEach ->
+      @recipeEditView.editRecipe(@recipe)
+      errors = {title: ["is no good, no good at all"]}
+      @recipeEditView.displayErrors @recipe, responseText: JSON.stringify(errors)
+    it "should add an error tag to the container div", ->
+      expect(@recipeEditView.$("div.clearfix:first")).toHaveClass "error"
+    it "should display the error message", ->
+      expect(@recipeEditView.$("span.help-inline").html()).toMatch /no good/
+      
   
     
