@@ -6,5 +6,5 @@ class Cookbook.Recipe extends Backbone.Model
     @ingredientCollection = new Cookbook.Ingredients(@)
     
   ingredients: ->
-    @ingredientCollection.fetch()
-    []
+    @ingredientCollection.fetch(success: => @ingredientCollection.fetched = true) unless @ingredientCollection.fetched?
+    @ingredientCollection.models
