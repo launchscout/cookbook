@@ -13,7 +13,6 @@ describe "EditRecipeSpec", ->
   
   describe "saving", ->
     beforeEach ->
-      jasmine.Ajax.useMock()
       @recipeEditView.editRecipe(@recipe)
       @recipeEditView.$("input[name=title]").val("the new title")
       @recipeEditView.$("textarea[name=description]").val("the new description")
