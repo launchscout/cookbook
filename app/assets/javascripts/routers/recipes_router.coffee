@@ -1,6 +1,7 @@
 class Cookbook.RecipesRouter extends Backbone.Router
   constructor: (recipes)->
     @recipes = recipes
+    @recipeView or= new Cookbook.RecipeView el: $("#recipe_view")
     super
     
   routes:
@@ -8,8 +9,10 @@ class Cookbook.RecipesRouter extends Backbone.Router
     "recipes/:id/edit": "editRecipe"
     
   viewRecipe: (id)->
-    @recipeView or= new Cookbook.RecipeView el: $("#recipe_view")
-    @recipeView.viewRecipe(@recipes.get(id))
+    recipe = @recipes.get(id)
+    @recipeView.model = recipe
+    recipe.ingredients.fetch success: => @recipeView.render()
+    @recipeView.render()
     
   editRecipe: (id)->
     @recipeView.hide() if @recipeView?

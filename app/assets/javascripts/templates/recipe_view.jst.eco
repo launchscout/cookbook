@@ -2,4 +2,5 @@
   <dt><%- @get("title") %></dt>
   <dd><%- @get("description") %></dd>
 </dl>
+<ul id="ingredients"></ul>
 <a href="#recipes/<%- @id %>/edit">Edit</a
