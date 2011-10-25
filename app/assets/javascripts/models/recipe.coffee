@@ -3,4 +3,8 @@ class Cookbook.Recipe extends Backbone.Model
   
   constructor: ->
     super
-    @ingredients = new Cookbook.Ingredients(@)
+    @ingredientCollection = new Cookbook.Ingredients(@)
+    
+  ingredients: ->
+    @ingredientCollection.fetch()
+    []
