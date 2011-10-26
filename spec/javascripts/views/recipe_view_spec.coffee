@@ -12,8 +12,8 @@ describe "RecipeView", ->
     expect(@recipeView.el.html()).toMatch /Bacon/
   describe "showing ingredients", ->
     beforeEach ->
-      @ingredient = new Cookbook.Ingredient text: "some stuff"
-      @recipe.ingredients = new Cookbook.Ingredients(@ingredient)
+      @ingredient = new Cookbook.Ingredient description: "some stuff"
+      @recipe.ingredients = new Cookbook.Ingredients([@ingredient], recipe: @recipe)
       @recipeView.renderIngredients()
     it "should display the ingredients", ->
       expect(@recipeView.$("li:first")).toHaveText /stuff/

@@ -1,6 +1,6 @@
 #= require ../models/ingredient
 class Cookbook.Ingredients extends Backbone.Collection
-  constructor: (model, options) -> 
+  constructor: (models, options) -> 
     super
     @recipe = options.recipe
   
