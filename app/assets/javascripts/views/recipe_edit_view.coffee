@@ -10,10 +10,10 @@ class Cookbook.RecipeEditView extends Backbone.View
   save: (event)->
     event.preventDefault()
     @model.bind "error", (recipe, response) => @displayErrors(recipe, response)
-    @model.set
-      title: @$("input[name=title]").val()
-      description: @$("textarea[name=description]").val()
-    @model.save {}, 
+    @model.save {
+        title: @$("input[name=title]").val()
+        description: @$("textarea[name=description]").val()
+      }, 
       success: => @close()
   
   displayErrors: (recipe, response) ->
