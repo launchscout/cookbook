@@ -3,6 +3,7 @@ class Cookbook.IngredientView extends Backbone.View
   events:
     "click .display": "edit"
     "click #save": "save"
+    "click .deleteIngredient": "delete"
     
   edit: ->
     @$(".display").hide()
@@ -15,6 +16,10 @@ class Cookbook.IngredientView extends Backbone.View
   save: ->
     @model.save({description: @$("input[name=description]").val()}, success: => @display())
   
+  delete: (event)->
+    event.stopPropagation()
+    @model.destroy success: => @remove()
+
   constructor: ->
     super
     @model.bind "change", => @render()
