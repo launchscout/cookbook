@@ -1,1 +1,5 @@
-<%- @get("description") %>
+<span class="display"><%- @get("description") %></span>
+<span class="edit" style="display: none;">
+  <input type="text" name="description" value="<%- @get('description') %>" />
+  <input type="button" value="Save" id="save" />
+</span>
