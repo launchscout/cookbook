@@ -3,4 +3,4 @@
   <dd><%- @get("description") %></dd>
 </dl>
 <ul id="ingredients"></ul><a href="#" id="newIngredient">New Ingredient</a>
-<a href="#recipes/<%- @id %>/edit">Edit</a
+<a href="#recipes/<%- @id %>/edit">Edit</a><a href="#" id="deleteRecipe">Delete</a>

@@ -2,6 +2,7 @@ class Cookbook.RecipeView extends Backbone.View
 
   events:
     "click #newIngredient": "newIngredient"
+    "click #deleteRecipe": "delete"
 
   render: ->
     @el.html JST["templates/recipe_view"] @model
@@ -9,7 +10,10 @@ class Cookbook.RecipeView extends Backbone.View
     @el.show()
 
   hide: -> @el.hide()
-      
+  
+  delete: ->
+    @model.destroy(success: => @hide())
+  
   renderIngredients: ->
     @ingredientViews = (@addIngredientView(ingredient) for ingredient in @model.ingredients.models)
   
