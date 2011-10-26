@@ -12,12 +12,13 @@ describe "RecipeSpec", ->
         expect(@request).toRequest
           method: "GET"
           url: "/recipes/2/ingredients"
-    describe "when they are loaded", ->
+    describe "loading the ingredients", ->
       beforeEach ->
         @ingredient = new Cookbook.Ingredient description: "2 qts of goo"
+        @recipe.fetchIngredients (ingredients)->
+          @ingredients = ingredients
         mostRecentAjaxRequest().response
           status: 200
           responseText: JSON.stringify([@ingredient])
-        @ingredients = @recipe.ingredients()
       it "returns the already fetched ingredients", ->
-        expect(@ingredients).toContain @ingredient
+        expect(@ingredients()[0].get("description")).toMatch /goo/

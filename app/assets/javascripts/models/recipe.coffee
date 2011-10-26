@@ -3,8 +3,12 @@ class Cookbook.Recipe extends Backbone.Model
   
   constructor: ->
     super
-    @ingredientCollection = new Cookbook.Ingredients(@)
+    @ingredientCollection = new Cookbook.Ingredients([], recipe: @)
     
   ingredients: ->
-    @ingredientCollection.fetch(success: => @ingredientCollection.fetched = true) unless @ingredientCollection.fetched?
+    @ingredientCollection.fetch(
+      success: => 
+        @ingredientCollection.fetched = true
+        @trigger("change")
+    ) unless @ingredientCollection.fetched?
     @ingredientCollection.models
