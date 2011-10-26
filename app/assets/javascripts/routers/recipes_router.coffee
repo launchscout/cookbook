@@ -12,10 +12,9 @@ class Cookbook.RecipesRouter extends Backbone.Router
     recipe = @recipes.get(id)
     @recipeView.model = recipe
     recipe.ingredients.fetch success: => @recipeView.render()
-    @recipeView.render()
     
   editRecipe: (id)->
-    @recipeView.hide() if @recipeView?
     @recipeEditView or= new Cookbook.RecipeEditView el: $("#recipe_edit")
+    @recipeView.hide() if @recipeView?
     @recipeEditView.editRecipe(@recipes.get(id))
     
